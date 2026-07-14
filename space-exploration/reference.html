@@ -1,0 +1,398 @@
+< !DOCTYPE html >
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Horizon / Lightspeed Landing Page</title>
+
+                    <!-- Google Fonts for typography matching the design -->
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+                                <!-- Tailwind CSS -->
+                                <script src="https://cdn.tailwindcss.com"></script>
+                                <script>
+                                    tailwind.config = {
+                                        theme: {
+                                        extend: {
+                                        fontFamily: {
+                                        sans: ['Inter', 'sans-serif'],
+                                    display: ['Rajdhani', 'sans-serif'],
+                    },
+                                    colors: {
+                                        brand: {
+                                        dark: '#06080F',
+                                    light: '#0A0D17',
+                                    cyan: '#00A8FF',
+                                    gray: '#8A8F9E'
+                        }
+                    }
+                }
+            }
+        }
+                                </script>
+
+                                <!-- React & ReactDOM -->
+                                <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+                                <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+                                <!-- Babel for JSX -->
+                                <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+                                <style>
+                                    body {
+                                        background - color: #06080F;
+                                    color: #ffffff;
+                                    margin: 0;
+                                    padding: 0;
+                                    overflow-x: hidden;
+        }
+
+                                    /* Custom glow effect for the main title */
+                                    .text-glow {
+                                        text - shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(0, 168, 255, 0.3);
+        }
+
+                                    /* Subtle grid background overlay for the dark theme */
+                                    .bg-grid {
+                                        background - image:
+                                    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                                    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+                                    background-size: 50px 50px;
+        }
+                                </style>
+                            </head>
+                            <body>
+                                <div id="root"></div>
+
+                                <script type="text/babel">
+        const Navbar = () => (
+                                    <nav className="absolute top-0 w-full z-50 px-6 py-6 lg:px-16 lg:py-8 flex justify-between items-center">
+                                        <div className="flex items-center space-x-2">
+                                            <span className="text-xl font-bold tracking-widest text-white">
+                                                <span className="text-white/60">/</span> HORIZON 2023
+                                            </span>
+                                        </div>
+
+                                        <div className="hidden lg:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                                            <a href="#product" className="hover:text-brand-cyan transition-colors">Product</a>
+                                            <a href="#features" className="hover:text-brand-cyan transition-colors">Features</a>
+                                            <a href="#pricing" className="hover:text-brand-cyan transition-colors">Pricing</a>
+                                            <a href="#company" className="hover:text-brand-cyan transition-colors">Company</a>
+                                            <button className="px-6 py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                                                Register
+                                            </button>
+                                        </div>
+
+                                        {/* Mobile Menu Icon */}
+                                        <button className="lg:hidden text-white">
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                        </button>
+                                    </nav>
+                                    );
+
+        const Hero = () => (
+                                    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-dark">
+                                        {/* Background references the provided image */}
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-screen"
+                                            style={{ backgroundImage: `url('image_6f29c4.png')` }}
+                                        ></div>
+
+                                        {/* Gradient overlays to blend it smoothly into the page */}
+                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/50 to-brand-dark"></div>
+                                        <div className="absolute inset-0 bg-radial-gradient from-brand-cyan/10 to-transparent opacity-50"></div>
+
+                                        <div className="relative z-10 flex flex-col items-center text-center mt-20 px-4 w-full max-w-5xl">
+
+                                            <div className="flex flex-col items-center mb-8">
+                                                <span className="text-xs font-bold tracking-[0.3em] uppercase text-white/70 mb-2">Explore</span>
+                                                <div className="w-8 h-[2px] bg-white/50"></div>
+                                            </div>
+
+                                            <h1 className="text-7xl md:text-[9rem] lg:text-[11rem] font-display font-light tracking-[0.1em] leading-none mb-8 text-glow select-none">
+                                                HORIZON
+                                            </h1>
+
+                                            <p className="max-w-md text-brand-gray text-sm md:text-base leading-relaxed mb-10">
+                                                Horizon is the next generation of platforms to solve all your problems. Register to stay in the loop.
+                                            </p>
+
+                                            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                                <button className="px-8 py-3 bg-white text-black rounded-full font-semibold text-sm hover:bg-gray-200 transition-colors">
+                                                    Register
+                                                </button>
+                                                <button className="px-8 py-3 border border-white/30 rounded-full font-semibold text-sm hover:bg-white/10 transition-colors">
+                                                    Request info
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="absolute bottom-10 animate-bounce">
+                                            <button className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors text-white/50">
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                                            </button>
+                                        </div>
+                                    </section>
+                                    );
+
+                                    const BlogCard = ({date, title, excerpt, imageSrc}) => (
+                                    <div className="flex flex-col group cursor-pointer">
+                                        <div className="relative overflow-hidden rounded-sm aspect-[4/3] mb-6">
+                                            <img
+                                                src={imageSrc}
+                                                alt={title}
+                                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                                            />
+                                            <div className="absolute bottom-4 left-4 w-12 h-12 bg-white text-black rounded-full flex flex-col items-center justify-center font-bold leading-none shadow-lg">
+                                                <span className="text-lg">{date.split(' ')[0]}</span>
+                                                <span className="text-[10px] uppercase">{date.split(' ')[1]}</span>
+                                            </div>
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-3 group-hover:text-brand-cyan transition-colors">{title}</h3>
+                                        <p className="text-brand-gray text-sm mb-4 line-clamp-3 leading-relaxed">
+                                            {excerpt}
+                                        </p>
+                                        <span className="text-xs font-semibold tracking-widest uppercase text-white/70 flex items-center group-hover:text-white transition-colors">
+                                            Read more
+                                        </span>
+                                    </div>
+                                    );
+
+        const BlogSection = () => {
+            const blogs = [
+                                    {id: 1, date: "14 Feb", title: "Space Is Full Of Surprises", imageSrc: "image_6f22dd.jpg" },
+                                    {id: 2, date: "14 Feb", title: "Space Is What Matters The Most", imageSrc: "image_6f22dd.jpg" },
+                                    {id: 3, date: "14 Feb", title: "Let's Measure The Space", imageSrc: "image_6f22dd.jpg" },
+                                    {id: 4, date: "16 Feb", title: "Space Is Full Of Surprises", imageSrc: "image_6f22dd.jpg" },
+                                    {id: 5, date: "16 Feb", title: "Earth Is Just The Beginning", imageSrc: "image_6f22dd.jpg" },
+                                    {id: 6, date: "16 Feb", title: "The Stars Are Calling Us", imageSrc: "image_6f22dd.jpg" },
+                                    ];
+
+                                    const excerptText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis aliquet sapien. Donec velit lacus, mollis eu vulputate sed vulputate arcu.";
+
+                                    return (
+                                    <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto bg-brand-dark">
+                                        <div className="text-center mb-16">
+                                            <span className="text-sm text-brand-gray font-medium tracking-wide">Our Blog</span>
+                                            <h2 className="text-4xl md:text-5xl font-display font-semibold mt-2 mb-6">News & Blog</h2>
+                                            <p className="text-brand-gray max-w-2xl mx-auto text-sm leading-relaxed">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                                            {blogs.map(blog => (
+                                                <BlogCard key={blog.id} {...blog} excerpt={excerptText} />
+                                            ))}
+                                        </div>
+                                    </section>
+                                    );
+        };
+
+        const CoverageSection = () => (
+                                    <section className="py-24 px-6 lg:px-16 flex flex-col items-center justify-center bg-grid relative border-t border-white/5">
+                                        <div className="text-center max-w-3xl z-10 mb-16">
+                                            <h2 className="text-3xl md:text-5xl font-display font-bold tracking-widest uppercase mb-6">
+                                                Global Coverage
+                                            </h2>
+                                            <p className="text-brand-gray text-sm md:text-base leading-relaxed">
+                                                Lightspeed provides internet solutions with excellent speeds around the whole globe. Power your home or enterprise with connectivity in more than 190 countries.
+                                            </p>
+                                        </div>
+
+                                        <div className="w-full max-w-6xl relative z-10">
+                                            {/* Using the referenced map image */}
+                                            <img src="image_6f26c0.png" alt="Global Coverage Map" className="w-full h-auto object-contain drop-shadow-2xl opacity-90" />
+                                        </div>
+                                    </section>
+                                    );
+
+                                    const FeatureBlock = ({tagline, title, description, buttonText, imageSrc, reverse = false}) => (
+                                    <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24 py-20`}>
+                                        <div className="w-full lg:w-1/2 flex flex-col items-start">
+                                            <div className="flex items-center space-x-4 mb-4">
+                                                <div className="w-8 h-[2px] bg-brand-cyan"></div>
+                                                <span className="text-xs font-bold tracking-widest uppercase text-brand-gray">{tagline}</span>
+                                            </div>
+                                            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-wide leading-tight mb-6">
+                                                {title}
+                                            </h2>
+                                            <p className="text-brand-gray text-sm leading-loose mb-8">
+                                                {description}
+                                            </p>
+                                            <button className="px-8 py-3 bg-brand-cyan text-white font-bold text-sm tracking-wide hover:bg-cyan-500 transition-colors">
+                                                {buttonText}
+                                            </button>
+                                        </div>
+                                        <div className="w-full lg:w-1/2">
+                                            <div className="relative p-1">
+                                                <div className="absolute inset-0 bg-gradient-to-tr from-brand-cyan/20 to-transparent blur-2xl"></div>
+                                                <img
+                                                    src={imageSrc}
+                                                    alt={title}
+                                                    className="relative z-10 w-full h-auto object-cover rounded-sm shadow-2xl border border-white/5"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    );
+
+        const FeaturesSection = () => (
+                                    <section className="px-6 lg:px-16 max-w-7xl mx-auto divide-y divide-white/5">
+                                        <FeatureBlock
+                                            tagline="Our Mission"
+                                            title="Internet On A Remote Island?"
+                                            description="With the pandemic still affecting people and encouraging remote work, people with spotty internet connections working from a beach or secluded island can now enjoy reliable high-speed internet while still escaping life in a busy town."
+                                            buttonText="EXPLORE"
+                                            imageSrc="image_6f26e0.png"
+                                        />
+                                        <FeatureBlock
+                                            tagline="Our Capabilities"
+                                            title="Innovation"
+                                            description="Lightspeed uses thousands of micro satellites scattered around in low orbit to bring high-speed internet anywhere on the planet. This lets us project down in a fixed spot on the Earth and drastically reduce internet bandwidth and latency."
+                                            buttonText="LEARN MORE"
+                                            imageSrc="image_6f26e0.png"
+                                            reverse={true}
+                                        />
+                                        <FeatureBlock
+                                            tagline="Our Solution"
+                                            title="Looking For Speed?"
+                                            description="A slow connection that times out or takes minutes for a page to load is almost as bad as no connection at all. Therefore, the Lightspeed has decided to develop a solution that allows you to download anything at a minimum of 150 Mbps and upload at 10 Mbps with no frustration attached."
+                                            buttonText="SHOW ME"
+                                            imageSrc="image_6f2718.png"
+                                        />
+                                        <FeatureBlock
+                                            tagline="Our Promise"
+                                            title="Security Is Important"
+                                            description="Cybersecurity risks pervade every organization and aren't always under the direct control of your IT security team. Increasing global connectivity, usage of cloud services, and outsourcing means a much larger attack vector than in the past. Learn more about cyber security."
+                                            buttonText="LEARN MORE"
+                                            imageSrc="image_6f2718.png"
+                                            reverse={true}
+                                        />
+                                    </section>
+                                    );
+
+        const CTASection = () => (
+                                    <section className="relative py-32 mt-20 flex flex-col items-center justify-center text-center">
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center opacity-50 mix-blend-screen"
+                                            style={{ backgroundImage: `url('image_6f1bb3.jpg')` }}
+                                        ></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark"></div>
+
+                                        <div className="relative z-10 flex flex-col items-center">
+                                            <h2 className="text-4xl md:text-5xl font-display font-bold tracking-widest uppercase mb-10 text-glow">
+                                                Ready To Join Us?
+                                            </h2>
+                                            <button className="px-10 py-4 border border-white bg-transparent hover:bg-white hover:text-black transition-colors font-bold tracking-widest text-sm">
+                                                JOIN NOW
+                                            </button>
+                                        </div>
+                                    </section>
+                                    );
+
+        const Footer = () => (
+                                    <footer className="bg-brand-dark pt-20 pb-10 px-6 lg:px-16 border-t border-white/5 relative z-10">
+                                        <div className="max-w-7xl mx-auto flex flex-col items-center mb-16">
+                                            <div className="flex items-center justify-center space-x-2 mb-4">
+                                                {/* Satellite Icon SVG */}
+                                                <svg className="w-8 h-8 transform -rotate-45" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 2L15 8H9L12 2Z" />
+                                                    <rect x="10" y="8" width="4" height="8" />
+                                                    <path d="M6 10H8V14H6V10Z" />
+                                                    <path d="M16 10H18V14H16V10Z" />
+                                                    <circle cx="12" cy="18" r="2" />
+                                                </svg>
+                                            </div>
+                                            <h3 className="text-xl font-display font-bold tracking-widest mb-4">LIGHTSPEED</h3>
+                                            <p className="text-brand-gray text-xs text-center max-w-sm leading-relaxed">
+                                                Lightspeed is a satellite internet constellation providing satellite internet access.
+                                            </p>
+                                        </div>
+
+                                        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16 border-b border-white/10 pb-16">
+
+                                            <div className="flex flex-col space-y-4">
+                                                <h4 className="text-sm font-bold tracking-widest uppercase mb-2">About</h4>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Solutions</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">How it works</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Testimonials</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Careers</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Values</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Privacy & Legal</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">News</a>
+                                            </div>
+
+                                            <div className="flex flex-col space-y-4">
+                                                <h4 className="text-sm font-bold tracking-widest uppercase mb-2">Solution</h4>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Individuals</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Businesses</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Non-profit</a>
+                                            </div>
+
+                                            <div className="flex flex-col space-y-4">
+                                                <h4 className="text-sm font-bold tracking-widest uppercase mb-2">Investors</h4>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Investor profile</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Reports</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Stock Information</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Stockholder Services</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Corporate Governance</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Resources</a>
+                                            </div>
+
+                                            <div className="flex flex-col space-y-4">
+                                                <h4 className="text-sm font-bold tracking-widest uppercase mb-2">Contact</h4>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Phone</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">E-mail</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Pinterest</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Facebook</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">Instagram</a>
+                                                <a href="#" className="text-brand-gray text-xs hover:text-white transition-colors">LinkedIn</a>
+                                            </div>
+
+                                            <div className="col-span-2 md:col-span-4 lg:col-span-1 flex lg:justify-end items-start mt-4 lg:mt-0">
+                                                <button className="px-8 py-2 border border-white/50 text-sm hover:bg-white hover:text-black transition-colors w-full lg:w-auto">
+                                                    Sign Up
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-brand-gray">
+                                            <div className="mb-4 md:mb-0">
+                                                LightSpeed © 2021
+                                            </div>
+                                            <div className="flex items-center space-x-2">
+                                                <span className="w-5 h-5 rounded-full border border-brand-gray flex items-center justify-center text-[10px]">C</span>
+                                                <div className="flex flex-col">
+                                                    <span className="font-bold text-white">Created by DOMINIK D.</span>
+                                                    <span className="text-[10px] text-brand-cyan">UX/UI Designer</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                    );
+
+        const App = () => {
+            return (
+                                    <div className="w-full bg-brand-dark min-h-screen font-sans antialiased selection:bg-brand-cyan selection:text-white">
+                                        <Navbar />
+                                        <main>
+                                            <Hero />
+                                            <BlogSection />
+                                            <CoverageSection />
+                                            <FeaturesSection />
+                                            <CTASection />
+                                        </main>
+                                        <Footer />
+                                    </div>
+                                    );
+        };
+
+                                    const root = ReactDOM.createRoot(document.getElementById('root'));
+                                    root.render(<App />);
+                                </script>
+                            </body>
+                        </html>
